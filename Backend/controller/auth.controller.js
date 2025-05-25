@@ -1,8 +1,7 @@
 import user from '../models/user.model.js';
-import asynHandler from 'express-async-handler';
+import asyncHandler from "express-async-handler";
 import generateToken from "../util/generateToken.js";
 import User from '../models/user.model.js';
-
 
 
 
@@ -10,7 +9,7 @@ import User from '../models/user.model.js';
 //route: POST /api/v1/register
 //@access Public
 
-const registerUser = asynHandler(async (req, res) => {
+const registerUser = asyncHandler(async (req, res) => {
     const { name, email, password } = req.body;
     const userExists = await User.findOne({ email });
     if (userExists) {
@@ -22,7 +21,7 @@ const registerUser = asynHandler(async (req, res) => {
         name,
         email,
         password,
-});
+    });
 
     if (user) {
         generateToken(res, user._id);
@@ -31,7 +30,7 @@ const registerUser = asynHandler(async (req, res) => {
             name: user.name,
             email: user.email,
         });
-        } else {
+    } else {
         res.status(400);
         throw new Error('Invalid user data');
     }
@@ -41,11 +40,11 @@ const registerUser = asynHandler(async (req, res) => {
 //route: POST /api/v1/auth/login
 //@access Public
 
-const loginUser = asynHandler(async (req, res) => {
+const loginUser = asyncHandler(async (req, res) => {
     const { email, password } = req.body;
     const user = await User.findOne({ email });
 
-    if(user && await (user.matchPassword(password))) {
+    if (user && await (user.matchPassword(password))) {
         // Generate token and send response
         generateToken(res, user._id);
         res.status(200).json({
@@ -53,7 +52,8 @@ const loginUser = asynHandler(async (req, res) => {
             name: user.name,
             email: user.email,
         });
-1    }else {
+        1
+    } else {
         res.status(401);
         throw new Error('Invalid email or password');
     }
@@ -63,7 +63,7 @@ const loginUser = asynHandler(async (req, res) => {
 //route: POST /api/v1/auth/Logout
 //@access Public
 
-const logOut = asynHandler(async (req, res) => {
+const logOut = asyncHandler(async (req, res) => {
     res.cookie('jwt', '', {
         httpOnly: true,
         expires: new Date(0),
@@ -72,4 +72,3 @@ const logOut = asynHandler(async (req, res) => {
 });
 
 export { registerUser, loginUser, logOut };
-    
