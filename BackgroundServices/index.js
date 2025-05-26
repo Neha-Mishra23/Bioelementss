@@ -19,6 +19,7 @@ const services = () =>{
         sendWelcomeEmail();
         sendPendingOrderEmail();
         sendDeliveredOrderEmail();
+       
     });
 }
     const promotion = () => {
