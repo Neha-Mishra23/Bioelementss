@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Background Services</title>
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            min-width: 100%;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            color: #222222;
+        }
+
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 1.25;
+            margin-top: 0;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .status {
+            color: #fff;
+            width: 100px;
+            padding: 10px;
+            animation: blink 2s infinite;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        @keyframes blink {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 24px;
+        }
+
+        .divider {
+            border-top: 1px solid #ccc;
+            margin: 20px 0;
+        }
+
+        .email-wrapper {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+        }
+
+        .email-header {
+            background-color: #1e1e1e;
+            color: #f086d9;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .email-body {
+            padding: 14px;
+            background-color: #f4f3f3;
+            height: 70vh;
+        }
+
+        .email-footer {
+            background-color: #1e1e1e;
+            color: #d55fbb;
+            padding: 14px;
+            text-align: center;
+        }
+
+        img {
+            padding: 24px;
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="email-wrapper">
+        <div class="email-header">
+            <img src="https://www.bioelements.com/cdn/shop/files/bioelements-logo_6cc62933-a11f-418b-9853-a49ccbc63287.png?v=1737717875&width=200"
+                alt="">
+        </div>
+        <div class="email-body">
+            <p>Hello <%= name %>,</p>
+            <p>Welcome to Background Services</p>
+            <p>We are happy to have you on board</p>
+            <p>Best regards</p>
+            <p>Background Services</p>
+        </div>
+        <div class="email-footer">
+            <p>&copy; 2025 Background Services. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+
+</html>
