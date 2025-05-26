@@ -17,11 +17,12 @@ const services = () =>{
         //console.log("running a task every minute");
         sendWelcomeEmail();
         sendPendingOrderEmail();
+        sendDeliveredOrderEmail();
     });
 }
 services();
 
 app.listen(PORT, () =>{
-    console.log(`Server is running on port ${PORT}`);
+    console.log(`Backgroundservices is running on port ${PORT}`);
     dbConnection();
 })
